@@ -1,15 +1,20 @@
 @import "tailwindcss";
 
+/* ===== Dessert Shop Theme (Light Only) ===== */
+
 :root {
-  /* Base colors */
-  --background: #fff7f9;       /* soft strawberry milk */
-  --foreground: #4b2e2e;       /* warm chocolate text */
+  /* Force light UI controls (inputs, scrollbars, etc.) */
+  color-scheme: light;
+
+  /* Base colors (vanilla icing + chocolate text) */
+  --background: #fffdf7; /* vanilla icing */
+  --foreground: #4b2e2e; /* warm chocolate text */
 
   /* Accent palette */
-  --primary: #ff7eb9;          /* candy pink */
-  --secondary: #ffd166;        /* custard yellow */
-  --accent: #ff9f68;           /* peach sorbet */
-  --mint: #7bdcb5;             /* mint cream */
+  --primary: #ff7eb9;   /* candy pink */
+  --secondary: #ffd166; /* custard yellow */
+  --accent: #ff9f68;    /* peach sorbet */
+  --mint: #7bdcb5;      /* mint cream */
 
   /* UI */
   --card-bg: #ffffff;
@@ -26,17 +31,8 @@
   --color-card: var(--card-bg);
   --color-border-soft: var(--border-soft);
 
-  --font-sans: "Poppins", "Comic Sans MS", system-ui, sans-serif;
+  --font-sans: "Poppins", system-ui, -apple-system, sans-serif;
   --font-mono: "Courier New", monospace;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #2b1e1e;     /* dark cocoa */
-    --foreground: #fff5f7;     /* whipped cream text */
-    --card-bg: #3a2727;
-    --border-soft: #5a3d3d;
-  }
 }
 
 body {
@@ -44,37 +40,34 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   min-height: 100vh;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
+/* Soft cards */
 .card {
   background: var(--card-bg);
   border: 2px solid var(--border-soft);
   border-radius: 1.5rem;
-  box-shadow: 0 10px 25px rgba(255, 126, 185, 0.15);
+  box-shadow: 0 10px 25px rgba(255, 126, 185, 0.14);
   padding: 1.5rem;
 }
 
 /* Cute button vibe */
 .btn-primary {
-  background: linear-gradient(
-    135deg,
-    var(--primary),
-    var(--accent)
-  );
+  background: linear-gradient(135deg, var(--primary), var(--accent));
   color: white;
   border-radius: 999px;
   padding: 0.75rem 1.5rem;
   font-weight: 600;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255, 126, 185, 0.35);
+  box-shadow: 0 10px 24px rgba(255, 126, 185, 0.28);
+  filter: brightness(1.02);
 }
 
-/* Links feel playful */
 a {
   color: var(--primary);
   text-decoration: none;

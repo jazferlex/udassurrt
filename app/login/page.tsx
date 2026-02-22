@@ -57,9 +57,9 @@ export default function LoginPage() {
     <div className="min-h-screen bg-background text-foreground">
       {/* dreamy background */}
       <div className="pointer-events-none fixed inset-0 -z-10">
-        <div className="absolute -left-20 -top-24 h-72 w-72 rounded-full bg-[color:var(--primary)]/25 blur-3xl" />
-        <div className="absolute right-[-60px] top-24 h-80 w-80 rounded-full bg-[color:var(--secondary)]/25 blur-3xl" />
-        <div className="absolute bottom-[-90px] left-1/3 h-96 w-96 rounded-full bg-[color:var(--accent)]/20 blur-3xl" />
+        <div className="absolute -left-20 -top-24 h-72 w-72 rounded-full bg-(--primary)/25 blur-3xl" />
+        <div className="absolute right-15 top-24 h-80 w-80 rounded-full bg-(--secondary)/25 blur-3xl" />
+        <div className="absolute -bottom-22.5 left-1/3 h-96 w-96 rounded-full bg-(--accent)/20 blur-3xl" />
       </div>
 
       <div className="mx-auto flex min-h-screen w-full max-w-md flex-col justify-center px-6 py-12">
@@ -77,7 +77,7 @@ export default function LoginPage() {
 
         <form
           onSubmit={onSubmit}
-          className="space-y-5 rounded-3xl border border-[color:var(--border-soft)] bg-[color:var(--card-bg)] p-6 shadow-[0_16px_40px_rgba(255,126,185,0.18)]"
+          className="space-y-5 backdrop-blur-sm rounded-3xl bg-transparent p-6 shadow-[0_16px_40px_rgba(255,126,185,0.18)]"
         >
           <div className="space-y-2">
             <label htmlFor="email" className="text-sm font-medium">
