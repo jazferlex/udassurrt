@@ -11,9 +11,9 @@
   --foreground: #4b2e2e; /* warm chocolate text */
 
   /* Accent palette */
-  --primary: #ff7eb9;   /* candy pink */
+  --primary: #ff4f9e;   /* candy pink */
   --secondary: #ffd166; /* custard yellow */
-  --accent: #ff9f68;    /* peach sorbet */
+  --accent: #ff843d;    /* peach sorbet */
   --mint: #7bdcb5;      /* mint cream */
 
   /* UI */
@@ -21,7 +21,7 @@
   --border-soft: #ffe3ec;
 }
 
-@theme inline {
+/* @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
@@ -33,7 +33,7 @@
 
   --font-sans: "Poppins", system-ui, -apple-system, sans-serif;
   --font-mono: "Courier New", monospace;
-}
+} */
 
 body {
   background: var(--background);

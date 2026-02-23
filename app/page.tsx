@@ -1,4 +1,5 @@
 import Navbar from "@/app/components/navbar/page";
+import Catalog from "@/app/components/catalog/page";
 
 export default function Home() {
   
@@ -9,6 +10,11 @@ export default function Home() {
       <p className="text-center text-lg">
         Your one-stop shop for all things delicious.
       </p>
+      <div className="w-full py-10 flex justify-center">
+        <div className="w-max flex justify-center-safe">
+          <Catalog />
+        </div>
+      </div>
     </div>
   );
 }

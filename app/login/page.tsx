@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { SubmitEvent, useState } from "react";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 
@@ -20,7 +20,7 @@ export default function LoginPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
 
-  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError(null);
 
@@ -62,10 +62,10 @@ export default function LoginPage() {
         <div className="absolute -bottom-22.5 left-1/3 h-96 w-96 rounded-full bg-(--accent)/20 blur-3xl" />
       </div>
 
-      <div className="mx-auto flex min-h-screen w-full max-w-md flex-col justify-center px-6 py-12">
+      <div className="mx-auto flex min-h-screen w-full max-w-lg flex-col justify-center px-6 py-12">
         <div className="mb-8 space-y-2">
-          <p className="inline-flex w-fit items-center gap-2 rounded-full border border-[color:var(--border-soft)] bg-[color:var(--card-bg)]/70 px-3 py-1 text-xs font-semibold tracking-wide">
-            <span className="text-[color:var(--primary)]">●</span> u-dassurrt bakery club
+          <p className="inline-flex w-fit items-center gap-2 rounded-full border border-border-soft bg-(--card-bg)/70 px-3 py-1 text-xs font-semibold tracking-wide">
+            <span className="text-primary">●</span> u-dassurrt bakery club
           </p>
           <h1 className="text-3xl font-semibold tracking-tight">
             welcome back, sweet tooth 🍰
@@ -90,7 +90,7 @@ export default function LoginPage() {
               autoComplete="email"
               value={form.email}
               onChange={(e) => setForm((prev) => ({ ...prev, email: e.target.value }))}
-              className="w-full rounded-2xl border border-[color:var(--border-soft)] bg-white/70 px-4 py-3 text-sm outline-none transition placeholder:text-[color:var(--foreground)]/40 focus:border-[color:var(--primary)] focus:ring-4 focus:ring-[color:var(--primary)]/20 dark:bg-white/10"
+              className="w-full rounded-2xl border border-border-soft bg-white/70 px-4 py-3 text-sm outline-none transition placeholder:text-(--foreground)/40 focus:border-primary focus:ring-4 focus:ring-(--primary)/20"
               placeholder="you@sprinkles.com"
             />
           </div>
@@ -106,7 +106,7 @@ export default function LoginPage() {
               autoComplete="current-password"
               value={form.password}
               onChange={(e) => setForm((prev) => ({ ...prev, password: e.target.value }))}
-              className="w-full rounded-2xl border border-[color:var(--border-soft)] bg-white/70 px-4 py-3 text-sm outline-none transition placeholder:text-[color:var(--foreground)]/40 focus:border-[color:var(--primary)] focus:ring-4 focus:ring-[color:var(--primary)]/20 dark:bg-white/10"
+              className="w-full rounded-2xl border border-border-soft bg-white/70 px-4 py-3 text-sm outline-none transition placeholder:text-(--foreground)/40 focus:border-primary focus:ring-4 focus:ring-(--primary)/20"
               placeholder="••••••••"
             />
           </div>
@@ -117,21 +117,21 @@ export default function LoginPage() {
                 type="checkbox"
                 checked={form.remember}
                 onChange={(e) => setForm((prev) => ({ ...prev, remember: e.target.checked }))}
-                className="h-4 w-4 rounded border-[color:var(--border-soft)] accent-[color:var(--primary)]"
+                className="h-4 w-4 rounded border-border-soft accent-primary"
               />
               remember me
             </label>
 
             <Link
               href="/"
-              className="text-sm font-medium text-[color:var(--primary)] underline decoration-[color:var(--primary)]/40 underline-offset-4 hover:decoration-[color:var(--primary)]"
+              className="text-sm font-medium text-primary underline decoration-(--primary)/40 underline-offset-4 hover:decoration-primary"
             >
               i forgot
             </Link>
           </div>
 
           {error ? (
-            <p className="rounded-2xl border border-[color:var(--primary)]/25 bg-[color:var(--primary)]/10 px-4 py-3 text-sm text-[color:var(--foreground)]">
+            <p className="rounded-2xl border border-(--primary)/25 bg-(--primary)/10 px-4 py-3 text-sm text-foreground">
               {error}
             </p>
           ) : null}
@@ -139,7 +139,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full rounded-2xl bg-gradient-to-r from-[color:var(--primary)] to-[color:var(--accent)] px-4 py-3 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(255,126,185,0.35)] transition hover:brightness-105 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-70"
+            className="w-full rounded-2xl bg-linear-to-r from-primary to-accent px-4 py-3 text-sm font-semibold text-white shadow-[0_10px_24px_rgba(255,126,185,0.35)] transition hover:brightness-105 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-70"
           >
             {isSubmitting ? "mixing your login..." : "sign in"}
           </button>
@@ -148,7 +148,7 @@ export default function LoginPage() {
             type="button"
             onClick={onGoogleSignIn}
             disabled={isGoogleLoading}
-            className="w-full rounded-2xl border border-[color:var(--border-soft)] bg-white/70 px-4 py-3 text-sm font-semibold text-[color:var(--foreground)] transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-70 dark:bg-white/10 dark:hover:bg-white/20"
+            className="w-full rounded-2xl border border-border-soft bg-white/70 px-4 py-3 text-sm font-semibold text-foreground transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-70 dark:bg-white/10 dark:hover:bg-white/20"
           >
             {isGoogleLoading ? "connecting to google..." : "continue with Google"}
           </button>
@@ -162,7 +162,7 @@ export default function LoginPage() {
           not you?{" "}
           <Link
             href="/"
-            className="font-semibold text-[color:var(--foreground)] underline decoration-[color:var(--primary)]/35 underline-offset-4 hover:decoration-[color:var(--primary)]"
+            className="font-semibold text-foreground underline decoration-(--primary)/35 underline-offset-4 hover:decoration-primary"
           >
             go home
           </Link>
