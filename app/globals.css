@@ -46,9 +46,8 @@ body {
 /* Soft cards */
 .card {
   background: var(--card-bg);
-  border: 2px solid var(--border-soft);
-  border-radius: 1.5rem;
-  box-shadow: 0 10px 25px rgba(255, 126, 185, 0.14);
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(128, 63, 92, 0.14);
   padding: 1.5rem;
 }
 
